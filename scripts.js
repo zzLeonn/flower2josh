@@ -24,8 +24,8 @@ if (!audioElement) {
     
     // Set start time when metadata is loaded
     const onLoaded = () => {
-      if (audioElement.duration > 57) {
-        audioElement.currentTime = 55;
+      if (audioElement.duration > 56) {
+        audioElement.currentTime = 54;
       }
       audioElement.removeEventListener('loadedmetadata', onLoaded);
     };
@@ -36,7 +36,7 @@ if (!audioElement) {
   updateSong();
 
   audioElement.addEventListener("ended", () => {
-    audioElement.currentTime = 56;
+    audioElement.currentTime = 55;
     audioElement.play();
   });
 

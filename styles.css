@@ -21,6 +21,15 @@ body {
   perspective: 1000px;
   color: white;
   text-align: center;
+  background: linear-gradient(135deg, #231a2e, #3c2d8b, #052041);
+  animation: gradient-shift 15s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .text {
@@ -31,7 +40,7 @@ body {
   width: 80%;   
   font-size: 2rem;    
   font-weight: 300;
-  color: #dfd2f0;
+  color: #f0d2eb;
   font-family: 'sans-serif';
   opacity: 0;        
   animation: fadeIn 2s ease forwards;
@@ -60,7 +69,7 @@ body {
   font-size: 18px;
   font-weight: 300;
   font-family: 'Helvetica', sans-serif;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.493);
   text-align: right;
   transition: opacity 0.5s ease-in-out;
 }
@@ -188,67 +197,44 @@ body {
   background-color: #e22b53;
   filter: blur(10vmin);
 }
+
 .flower__leaf {
   position: absolute;
-  bottom: 0;
+  bottom: 50%;
   left: 50%;
-  width: 8vmin;
-  height: 13vmin;
-  border-radius: 51% 49% 47% 53%/44% 45% 55% 69%;
+  width: 6vmin;
+  height: 14vmin;
+  border-radius: 45% 55% 50% 50% / 60% 60% 40% 40%;
   background-image: radial-gradient(
     ellipse at center,
-    rgba(255, 255, 255, 0.95) 0%,       /* Bright white center */
-    rgba(255, 230, 240, 0.9) 40%,       /* Very light pink */
-    rgba(255, 182, 193, 0.85) 70%,      /* Light pink */
-    rgba(255, 105, 180, 0.9) 100%       /* Hot pink edges */
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 230, 240, 0.9) 40%,
+    rgba(255, 182, 193, 0.85) 70%,
+    rgba(255, 105, 180, 0.9) 100%
   );
   transform-origin: bottom center;
-  opacity: 0.9;
+  opacity: 0.95;
   box-shadow: 
-    inset 0 0 2vmin rgba(219, 112, 147, 0.6),
-    inset 0 0 5px rgba(255, 182, 193, 0.8);
+    inset 0 0 0.5vmin rgba(219, 112, 147, 0.5),
+    inset 0 0 4px rgba(255, 182, 193, 0.7);
+  z-index: 1;
 }
+
 
 .flower__leaf--1 {
-  transform: 
-    translate(-10%, 1%) 
-    rotateY(160deg) 
-    rotateX(-65deg)
-    scaleY(1.8); /* Vertical scaling */
+  transform: translate(-50%, -5vmin) rotate(0deg);
 }
-
 .flower__leaf--2 {
-  transform: 
-    translate(-50%, -4%) 
-    rotateX(50deg)
-    scaleY(1.3); /* Slightly less vertical scaling */
+  transform: translate(-50%, -5vmin) rotate(72deg);
 }
-
 .flower__leaf--3 {
-  transform: 
-    translate(-90%, 0%) 
-    rotateY(50deg) 
-    rotateX(30deg)
-    scaleY(1.1); /* Moderate vertical scaling */
+  transform: translate(-50%, -5vmin) rotate(144deg);
 }
-
 .flower__leaf--4 {
-  width: 8vmin;
-  height: 8vmin;
-  transform-origin: bottom left;
-  border-radius: 4vmin 10vmin 4vmin 4vmin;
-  transform: translate(0%, 18%) rotateX(10deg) rotate(-43deg);
-  background-image: radial-gradient(
-    circle at center,
-    rgba(255, 255, 255, 0.9) 0%,        /* White center */
-    rgba(255, 182, 193, 0.85) 50%,       /* Light pink transition */
-    rgba(255, 105, 180, 0.9) 100%        /* Hot pink edges */
-  );
-  z-index: 1;
-  opacity: 0.8;
-  box-shadow: 
-    inset 0 0 3vmin rgba(219, 112, 147, 0.4),
-    inset 0 2vmin 4vmin rgba(255, 240, 245, 0.3);
+  transform: translate(-50%, -5vmin) rotate(216deg);
+}
+.flower__leaf--5 {
+  transform: translate(-50%, -5vmin) rotate(288deg);
 }
 
 .flower__leaf--4::after {
@@ -265,7 +251,7 @@ body {
 .flower__white-circle {
   position: absolute;
   left: -3.5vmin;
-  top: -3vmin;
+  top: -2vmin;
   width: 9vmin;
   height: 4vmin;
   border-radius: 50%;
@@ -276,7 +262,7 @@ body {
 .flower__white-circle::after {
   content: "";
   position: absolute;
-  top: 50%; /* Center vertically */
+  top: 20%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Precise centering */
   width: 70%; /* Relative to parent size */
@@ -1053,7 +1039,7 @@ mask-image: linear-gradient(to top, transparent 40%, #079097 80%) !important;
     text-shadow: 0 0 0px rgba(255, 234, 138, 0);
   }
   50% {
-    text-shadow: 0 0 20px rgba(255, 234, 138, 0.8);
+    text-shadow: 0 0 20px rgba(235, 138, 255, 0.8);
   }
   100% {
     text-shadow: 0 0 0px rgba(255, 234, 138, 0);
