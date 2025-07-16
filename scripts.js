@@ -14,8 +14,8 @@ if (!audioElement) {
 } else {
   // Set fixed music file
   const musicFile = {
-    name: "Troye Sivan - 10/10",
-    file: "music/10troye.mp3"
+    name: "Anıl Emre Daldal - M.",
+    file: "music/song.mp3"
   };
 
   function updateSong() {
@@ -24,8 +24,8 @@ if (!audioElement) {
     
     // Set start time when metadata is loaded
     const onLoaded = () => {
-      if (audioElement.duration > 30) {
-        audioElement.currentTime = 30;
+      if (audioElement.duration > 57) {
+        audioElement.currentTime = 55;
       }
       audioElement.removeEventListener('loadedmetadata', onLoaded);
     };
@@ -36,7 +36,7 @@ if (!audioElement) {
   updateSong();
 
   audioElement.addEventListener("ended", () => {
-    audioElement.currentTime = 30;
+    audioElement.currentTime = 56;
     audioElement.play();
   });
 
@@ -97,12 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Typewriter effect for messages
   const messages = [
-    "hey pookie, <3",
-    "happy valentine’s day.",
-    "thank you for always being supportive and loving.",
-    "i wish i was right beside you now.",
-    "i’ll always cherish and be here for you.",
-    "you mean so much to me."
+    "hey aşkım,",
+    "it’s a shame we fell off this way.",
+    "i hope you know i’ll always love you from afar.",
+    "take care and stay happy.",
+    "seni seviyorum."
   ];
 
   let index = 0;

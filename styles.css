@@ -74,7 +74,7 @@ body {
     width: 100%;
     height: 100%;
     filter: blur(0.1vmin);
-    background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(202, 145, 255, 0.2)), repeating-linear-gradient(220deg, black 0px, black 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, black 0px, black 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, black 0px, black 19px, transparent 19px, transparent 22px), linear-gradient(90deg, #6843be, #f0f0f0);
+    background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(255, 145, 178, 0.2)), repeating-linear-gradient(220deg, black 0px, black 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, black 0px, black 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, black 0px, black 19px, transparent 19px, transparent 22px), linear-gradient(90deg, #D6204E, #f0f0f0);
 }
 
 .flowers {
@@ -158,15 +158,15 @@ body {
 .flower__leafs {
   position: relative;
   animation: blooming-flower 2s backwards;
-  background-color: #4B0082; /* Dark indigo base */
+  background-color: #D6204E; 
   background-image: linear-gradient(
     to top,
-    #6A0DAD,  /* Deep purple */
-    #8A2BE2   /* Medium violet */
+    #9c3750, 
+    #D6204E  
   );
   box-shadow: 
-    inset 0 0 2vmin rgba(106, 13, 173, 0.5), /* Dark purple glow */
-    inset 0 -2vmin 3vmin rgba(75, 0, 130, 0.3); /* Bottom shadow */
+    inset 0 0 2vmin rgba(173, 13, 34, 0.5), /* Dark purple glow */
+    inset 0 -2vmin 3vmin rgba(130, 0, 28, 0.3); /* Bottom shadow */
 }
 .flower__leafs--1 {
   animation-delay: 1.1s;
@@ -185,7 +185,7 @@ body {
   transform: translate(-50%, -100%);
   width: 8vmin;
   height: 8vmin;
-  background-color: #8A2BE2;
+  background-color: #e22b53;
   filter: blur(10vmin);
 }
 .flower__leaf {
@@ -193,35 +193,43 @@ body {
   bottom: 0;
   left: 50%;
   width: 8vmin;
-  height: 13vmin; /* Increased from 11vmin to 13vmin (18% longer) */
+  height: 13vmin;
   border-radius: 51% 49% 47% 53%/44% 45% 55% 69%;
-  background-image: linear-gradient(to top, #6A0DAD, #8A2BE2);
+  background-image: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.95) 0%,       /* Bright white center */
+    rgba(255, 230, 240, 0.9) 40%,       /* Very light pink */
+    rgba(255, 182, 193, 0.85) 70%,      /* Light pink */
+    rgba(255, 105, 180, 0.9) 100%       /* Hot pink edges */
+  );
   transform-origin: bottom center;
   opacity: 0.9;
-  box-shadow: inset 0 0 2vmin rgba(138, 43, 226, 0.5);
+  box-shadow: 
+    inset 0 0 2vmin rgba(219, 112, 147, 0.6),
+    inset 0 0 5px rgba(255, 182, 193, 0.8);
 }
 
 .flower__leaf--1 {
   transform: 
     translate(-10%, 1%) 
-    rotateY(40deg) 
-    rotateX(-20deg)
-    scaleY(1.15); /* Vertical scaling */
+    rotateY(160deg) 
+    rotateX(-65deg)
+    scaleY(1.8); /* Vertical scaling */
 }
 
 .flower__leaf--2 {
   transform: 
     translate(-50%, -4%) 
-    rotateX(10deg)
-    scaleY(1.1); /* Slightly less vertical scaling */
+    rotateX(50deg)
+    scaleY(1.3); /* Slightly less vertical scaling */
 }
 
 .flower__leaf--3 {
   transform: 
     translate(-90%, 0%) 
-    rotateY(25deg) 
-    rotateX(25deg)
-    scaleY(1.12); /* Moderate vertical scaling */
+    rotateY(50deg) 
+    rotateX(30deg)
+    scaleY(1.1); /* Moderate vertical scaling */
 }
 
 .flower__leaf--4 {
@@ -230,16 +238,17 @@ body {
   transform-origin: bottom left;
   border-radius: 4vmin 10vmin 4vmin 4vmin;
   transform: translate(0%, 18%) rotateX(10deg) rotate(-43deg);
-  background-image: linear-gradient(
-    to top,
-    rgba(106, 13, 173, 0.9),  /* Dark purple (#6A0DAD) */
-    rgba(142, 68, 173, 0.9)   /* Royal purple (#8E44AD) */
+  background-image: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.9) 0%,        /* White center */
+    rgba(255, 182, 193, 0.85) 50%,       /* Light pink transition */
+    rgba(255, 105, 180, 0.9) 100%        /* Hot pink edges */
   );
   z-index: 1;
   opacity: 0.8;
   box-shadow: 
-    inset 0 0 3vmin rgba(104, 51, 173, 0.3), /* Darker shadow */
-    inset 0 2vmin 4vmin rgba(255, 255, 255, 0.1); /* Subtle highlight */
+    inset 0 0 3vmin rgba(219, 112, 147, 0.4),
+    inset 0 2vmin 4vmin rgba(255, 240, 245, 0.3);
 }
 
 .flower__leaf--4::after {
@@ -260,8 +269,8 @@ body {
   width: 9vmin;
   height: 4vmin;
   border-radius: 50%;
-  background-color: #602686; /* Dark purple base */
-  box-shadow: inset 0 0 10px rgba(65, 64, 64, 0.3); /* Inner shadow for depth */
+  background-color: #bec064; 
+  box-shadow: inset 0 0 10px rgba(223, 224, 124, 0.3); /* Inner shadow for depth */
 }
 
 .flower__white-circle::after {
@@ -274,14 +283,14 @@ body {
   height: 70%; /* Relative to parent size */
   background: radial-gradient(
     circle,
-    #BA55D3 20%, /* Lighter purple at the center */
-    #8A2BE2 50%, /* Mid-tone purple */
-    #4B0082 80% /* Darker purple at the edges */
+    #c4d65d 20%, /* Lighter purple at the center */
+    #c0e22b 50%, /* Mid-tone purple */
+    #827500 80% /* Darker purple at the edges */
   );
   border-radius: 50%; /* Circular shape */
   box-shadow: 
     inset 0 0 5px rgba(255, 255, 255, 0.2), /* Inner highlight */
-    0 0 10px rgba(138, 43, 226, 0.5); /* Outer glow */
+    0 0 10px rgba(177, 226, 43, 0.5); /* Outer glow */
 }
 .flower__line {
   height: 55vmin;
@@ -337,7 +346,7 @@ body {
   bottom: 0vmin;
   width: 1vmin;
   height: 1vmin;
-  background-color: #9370DB;
+  background-color: #e084ba;
   border-radius: 50%;
   filter: blur(0.2vmin);
   animation: light-ans 4s linear infinite backwards;
@@ -967,7 +976,7 @@ mask-image: linear-gradient(to top, transparent 40%, #079097 80%) !important;
   left: var(--x);
   width: 6px;
   height: 6px;
-  background: radial-gradient(circle, #9e9cf7, rgba(247, 228, 156, 0));
+  background: radial-gradient(circle, #f79cf0, rgba(247, 228, 156, 0));
   border-radius: 50%;
   opacity: 0;
   transform: scale(0.8);
