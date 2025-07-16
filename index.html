@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
+<head>
+  <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="format-detection" content="telephone=no">
@@ -12,6 +13,7 @@
     <link rel="manifest" href="img/site.webmanifest">
     <script src="scripts.js" defer></script>
     <title>from josh.</title>
+    </head>
 <body class="not-loaded">
   <div class="night"></div>
   <div id="message" class="text"></div>
@@ -335,10 +337,9 @@
   </div>
   
   <div id="song-title" aria-live="polite"></div>
-  <audio id="bgMusic" autoplay loop aria-label="Background music">
-    <source src="music/song.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <audio id="bgMusic" loop preload="auto" aria-label="Background music">
+  <source src="music/song.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 </body>
-
 </html>
