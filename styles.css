@@ -5,6 +5,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 :root {
@@ -24,6 +25,7 @@ body {
   background: linear-gradient(135deg, #231a2e, #3c2d8b, #052041);
   animation: gradient-shift 15s ease infinite;
   background-size: 200% 200%;
+  -webkit-text-size-adjust: 100%
 }
 
 @keyframes gradient-shift {
@@ -44,7 +46,9 @@ body {
   font-family: 'sans-serif';
   opacity: 0;        
   animation: fadeIn 2s ease forwards;
-  animation-delay: 2s; 
+  animation-delay: 2s;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 @keyframes fadeIn {

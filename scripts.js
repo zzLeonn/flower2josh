@@ -5,7 +5,6 @@ window.onload = () => {
   }, 1000);
 };
 
-// Music functionality - Modified for single track
 const audioElement = document.getElementById("bgMusic");
 const songTitleElement = document.getElementById("song-title");
 
@@ -22,7 +21,9 @@ if (!audioElement) {
     audioElement.src = musicFile.file;
     songTitleElement.innerText = `Track: ${musicFile.name}`;
     
-    // Set start time when metadata is loaded
+    // iOS requires this to be set before playback
+    audioElement.load();
+    
     const onLoaded = () => {
       if (audioElement.duration > 56) {
         audioElement.currentTime = 54;
@@ -37,20 +38,42 @@ if (!audioElement) {
 
   audioElement.addEventListener("ended", () => {
     audioElement.currentTime = 55;
-    audioElement.play();
+    audioElement.play().catch(e => console.log("Playback failed:", e));
   });
 
-  // Ensure autoplay works on first click
-  audioElement.volume = 0.5;
-  document.addEventListener("click", () => {
-    if (audioElement.paused) {
-      audioElement.play().then(() => {
-        if (audioElement.currentTime < 31) {
-          audioElement.currentTime = 31;
-        }
-      }).catch(err => console.error("Audio play failed:", err));
-    }
-  }, { once: true });
+  // iOS requires this touch event on the body
+  document.body.addEventListener('touchstart', initAudio, { once: true });
+  // Also keep the click event for other devices
+  document.addEventListener("click", initAudio, { once: true });
+
+  function initAudio() {
+    audioElement.volume = 0.5;
+    audioElement.play().then(() => {
+      if (audioElement.currentTime < 31) {
+        audioElement.currentTime = 31;
+      }
+    }).catch(err => {
+      console.error("Audio play failed:", err);
+      // Show a play button if automatic play fails
+      showIOSPlayButton();
+    });
+  }
+
+  function showIOSPlayButton() {
+    const playBtn = document.createElement('button');
+    playBtn.textContent = 'Tap to Play Music';
+    playBtn.style.position = 'fixed';
+    playBtn.style.bottom = '20px';
+    playBtn.style.left = '50%';
+    playBtn.style.transform = 'translateX(-50%)';
+    playBtn.style.padding = '10px 20px';
+    playBtn.style.zIndex = '1000';
+    playBtn.addEventListener('click', () => {
+      audioElement.play();
+      playBtn.remove();
+    });
+    document.body.appendChild(playBtn);
+  }
 }
 
 // Create fireflies clustered around a center
@@ -114,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error("Message container not found");
     return;
   }
-
+  messageContainer.style.opacity = '1';
   function typeWriter() {
     if (index < messages.length) {
       if (charIndex < messages[index].length) {
